@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
+import DashBoardActions from './DashBoardActions';
 
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
-  profile: { loading, profile }
+  profile: { loading, profile },
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -22,7 +23,9 @@ const Dashboard = ({
         <i className="fas fa-user"></i> Welcome {user && user.name}
       </p>
       {profile !== null ? (
-        <>has</>
+        <>
+          <DashBoardActions />
+        </>
       ) : (
         <>
           <p>You have not yet setup a profile, please add some info</p>
@@ -38,12 +41,12 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
