@@ -9,6 +9,7 @@ import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
 import AddExperience from './components/profile-form/AddExperience';
 import AddEducation from './components/profile-form/AddEducation';
+import Profiles from './components/profiles/Profiles';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -59,6 +60,8 @@ const App = () => {
                 path="/add-education"
                 component={AddEducation}
               />
+              <Route exact path="/profiles" component={Profiles} />
+              
             </Switch>
           </section>
         </>
