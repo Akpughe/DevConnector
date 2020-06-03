@@ -11,6 +11,8 @@ const ProfileItem = ({
     skills,
   },
 }) => {
+  console.log(_id);
+
   return (
     //   <>
     //     <h1>test</h1>
